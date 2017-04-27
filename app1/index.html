@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html ng-app="shoppingApp">
+	<head>
+		<title>App1-Shopping Cart</title>
+		<script src="../angular-source/angular.min.js"></script>
+		<script src="controllers/controllers.js"></script>
+		<style>
+			li.item {
+				list-style-type: none;
+				background: #e6e6e6;
+				font-size: 20px;
+				padding: 10px;
+			}
+			ul{
+				padding: 0;
+			}
+			.pull-right{
+				float: right;
+				padding-right: 12px;
+			}
+		</style>
+	</head>
+	<body ng-controller="shoppingController as ShopCtrl">
+		<div class="shopping-title">
+			<h1>{{ShopCtrl.pageTitle}}</h1>
+		</div>
+		<div class="shopping-list">
+			<ul>
+				<li class="item" ng-repeat="item in ShopCtrl.list">
+					<span class="pull-left" id="{{item.id}}">{{item.name}}</span>
+					<span class="pull-right" ng-click="ShopCtrl.removeItem($index)">x</span>
+				</li>
+			</ul>
+		</div>
+		<div>
+			<input type="text" ng-model="ShopCtrl.itemAdd">
+			<button ng-click="ShopCtrl.addItem(ShopCtrl.itemAdd)">Add</button>
+		</div>
+	</body>
+</html>
