@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html ng-app="parking">
+	<head>
+		<title>App3-Parking</title>
+		<script src="../angular-source/angular.min.js"></script>
+		<script src="controllers/controllers.js"></script>
+		<style>
+		</style>
+	</head>
+	<body ng-controller="parkingController as ParkingCtrl">
+		<table>
+			<thead>
+				<tr>
+					<th>Plate</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Iterating over cars -->
+				<tr ng-repeat="car in ParkingCtrl.cars">
+					<td>
+						{{car.plate}}
+						
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<div>
+			<input type="text" ng-model="ParkingCtrl.addPlate" />
+			<button ng-click="ParkingCtrl.park(ParkingCtrl.addPlate)">Park</button>
+		</div>
+	</body>
+</html>
