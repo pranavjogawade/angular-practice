@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="editModeApp">
+	<head>
+		<title>App1-Shopping Cart</title>
+		<script src="../angular-source/angular.min.js"></script>
+		<script src="controllers/controllers.js"></script>
+		<style>
+		</style>
+	</head>
+	<body ng-controller="liveEditController as LiveCtrl">
+		<div class="live-edit">
+			<div class="edit-mode" ng-show="LiveCtrl.openEdit">
+				<input type="text" ng-model="LiveCtrl.name">
+				<button ng-click="LiveCtrl.update()">Update</button>
+			</div>
+			<p ng-dblclick="LiveCtrl.edit()">{{LiveCtrl.name}}</p>
+		</div>
+	</body>
+</html>
